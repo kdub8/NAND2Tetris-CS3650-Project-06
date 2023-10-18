@@ -1,3 +1,17 @@
+/*
+ * Author: Kevin Wong
+ * Assignment: NAND2TETRIS Project 6
+ * Date: 10/20/2023
+ * Professor: Nima Davarpanah
+ * Course: CS3650-01
+ * File: SymbolTable.java
+ * File Description: This Java file defines a class called "SymbolTable" that keeps a correspondence between symbolic labels and numeric addresses. 
+ * The symbol table contains predefined symbols and their associated addresses, as well as program and data addresses. The predefined symbols include
+ * register names, special memory locations, and more. The class allows for adding symbols and their addresses to the table, checking if a symbol 
+ * is present in the table, and retrieving the address associated with a symbol. It also provides methods for incrementing program and data addresses 
+ * and retrieving the current program and data addresses.
+ */
+
 import java.util.Hashtable;
 
 public class SymbolTable {

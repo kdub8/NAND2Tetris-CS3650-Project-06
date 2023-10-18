@@ -1,3 +1,19 @@
+/*
+ * Author: Kevin Wong
+ * Assignment: NAND2TETRIS Project 6
+ * Date: 10/20/2023
+ * Professor: Nima Davarpanah
+ * Course: CS3650-01
+ * File: Program.java
+ * File Description: This Java file serves as the entry point for a program designed to 
+ * convert a source file into a corresponding output file. It begins by checking if a valid source file is specified as a command-line 
+ * argument and exits with an error message if not. It then determines the source file's name and path, constructs an output file path with 
+ * a ".hack" extension, and creates the output file. The code measures the time taken for the translation process, initializes an "Assembler" 
+ * object to perform the translation, and outputs a success message if the translation completes without errors. It also handles potential I/O 
+ * exceptions and exits with an error message in such cases. Overall, this program is responsible for translating source code files into a specific 
+ * output format while handling various error conditions.
+ */
+
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;

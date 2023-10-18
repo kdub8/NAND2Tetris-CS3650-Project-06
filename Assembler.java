@@ -1,3 +1,20 @@
+/*
+ * Author: Kevin Wong
+ * Assignment: NAND2TETRIS Project 6
+ * Date: 10/20/2023
+ * Professor: Nima Davarpanah
+ * Course: CS3650-01
+ * File: Assembler.java
+ * File Description: This file defines an "Assembler" class, which is designed to convert assembly code into machine language 
+ * It takes as input an assembly code file and an output target file, utilizing components like 
+ * a `Parser` for reading and interpreting assembly code, a `SymbolTable` for managing symbols and their addresses, and a `Code` component 
+ * for encoding machine language instructions. The process involves two primary phases: first, it scans the assembly code to record label addresses, 
+ * and second, it translates the assembly code line by line, parsing each instruction into A-Instructions for constants and variables, and 
+ * C-Instructions for computation. These instructions are formatted into binary machine code and written to the target file. 
+ * The class is responsible for converting assembly code into machine code, managing symbols, and ensuring the correct translation of instructions, 
+ * while also handling input/output operations.
+ */
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;

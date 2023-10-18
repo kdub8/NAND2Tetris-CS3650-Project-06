@@ -4,6 +4,7 @@
  * Date: 10/20/2023
  * Professor: Nima Davarpanah
  * Course: CS3650-01
+ * File: Parser.java
  * File Description: This file defines a class called "Parser" for parsing and processing input files 
  * containing assembly code. The class has a constructor that initializes a BufferedReader to read from the input file. 
  * It provides methods to check for more commands, advance to the next command, determine the type of the current command 
