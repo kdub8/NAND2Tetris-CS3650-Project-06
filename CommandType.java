@@ -12,5 +12,8 @@
  */
 
 public enum CommandType {
-    A_COMMAND, C_COMMAND, L_COMMAND;
+    A_COMMAND, // Represents an A-command in the Hack assembly language, e.g., @Xxx.
+    C_COMMAND, // Represents a C-command in the Hack assembly language, e.g., dest=comp;jump.
+    L_COMMAND; // Represents an L-command (pseudo-command) in the Hack assembly language, e.g.,
+               // (Xxx).
 }

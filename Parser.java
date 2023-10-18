@@ -33,12 +33,14 @@ public class Parser {
         if (!source.exists()) {
             throw new FileNotFoundException(source.getAbsolutePath());
         }
-
+        
+        // Initialize the BufferedReader to read from the source file.
         this.reader = new BufferedReader(new FileReader(source));
         this.currentLine = null;
         this.nextLine = this.getNextLine();
     }
 
+    // Helper method to retrieve the next non-empty line from the source.
     private String getNextLine() throws IOException {
         String nextLine;
 
@@ -50,6 +52,7 @@ public class Parser {
             }
         } while (nextLine.trim().isEmpty() || this.isComment(nextLine));
 
+        // Remove any comments from the line.
         int commentIndex = nextLine.indexOf("//");
         if (commentIndex != -1) {
             nextLine = nextLine.substring(0, commentIndex - 1);
@@ -58,6 +61,7 @@ public class Parser {
         return nextLine;
     }
 
+    // Helper method to check if a line is a comment.
     private boolean isComment(String input) {
         return input.trim().startsWith("//");
     }
@@ -76,7 +80,7 @@ public class Parser {
         }
     }
 
-    // Are there more commands in the input?
+    // Check if more commands are in the input
     public boolean hasMoreCommands() {
         return (this.nextLine != null);
     }

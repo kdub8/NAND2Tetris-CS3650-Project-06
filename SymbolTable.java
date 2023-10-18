@@ -15,15 +15,18 @@
 import java.util.Hashtable;
 
 public class SymbolTable {
+    // Define constants for program and data memory address limits.
     private static final int DATA_STARTING_ADDRESS = 16;
     private static final int DATA_ENDING_ADDRESS = 16384;
     private static final int PROGRAM_STARTING_ADDRESS = 0;
     private static final int PROGRAM_ENDING_ADDRESS = 32767;
 
+    // Create a Hashtable to store symbol-address mappings, and initialize memory addresses.
     private Hashtable<String, Integer> symbolAddressMap;
     private int programAddress;
     private int dataAddress;
 
+    // Initialize the symbol table with predefined symbols and set initial memory addresses.
     public SymbolTable() {
         this.initializeSymbolTable();
         this.programAddress = PROGRAM_STARTING_ADDRESS;
@@ -31,6 +34,7 @@ public class SymbolTable {
     }
 
     private void initializeSymbolTable() {
+        // Initialize the symbol-address mapping for predefined symbols.
         this.symbolAddressMap = new Hashtable<String, Integer>();
         this.symbolAddressMap.put("SP", Integer.valueOf(0));
         this.symbolAddressMap.put("LCL", Integer.valueOf(1));
@@ -72,6 +76,7 @@ public class SymbolTable {
         return this.symbolAddressMap.get(symbol);
     }
 
+    // Increment the program address and check for exceeding the program memory limit.
     public void incrementProgramAddress() {
         this.programAddress++;
         if (this.programAddress > PROGRAM_ENDING_ADDRESS) {
@@ -79,6 +84,7 @@ public class SymbolTable {
         }
     }
 
+    // Increment the data address and check for exceeding the data memory limit.
     public void incrementDataAddress() {
         this.dataAddress++;
         if (this.dataAddress > DATA_ENDING_ADDRESS) {
@@ -86,10 +92,12 @@ public class SymbolTable {
         }
     }
 
+    //Get current program address
     public int getProgramAddress() {
         return this.programAddress;
     }
 
+    //Get current data address
     public int getDataAddress() {
         return this.dataAddress;
     }

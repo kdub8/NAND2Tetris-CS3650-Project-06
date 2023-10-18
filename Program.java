@@ -21,6 +21,7 @@ import java.io.StringWriter;
 public class Program {
     public static void main(String[] args) {
         // Exit with error if no source file specified.
+        // Check if a source file is provided as a command-line argument.
         if (args.length == 0) {
             System.err.println("No source file was specified.");
             System.exit(1);
@@ -33,7 +34,7 @@ public class Program {
             System.exit(2);
         }
 
-        // Get output file.
+        // Determine the output file path based on the source file's location and name.
         String sourceAbsolutePath = sourceFile.getAbsolutePath();
         String fileName = sourceFile.getName();
         int fileNameExtensionIndex = fileName.lastIndexOf(".");
@@ -44,24 +45,24 @@ public class Program {
         File outputFile = new File(outputFilePath);
 
         try {
-            // Create output file on disk.
+            // Create output file on disk (overwrite if it already exists).
             if (outputFile.exists()) {
                 outputFile.delete();
             }
             outputFile.createNewFile();
 
-            // Start timer.
+            // Start a timer to measure the translation process's execution time.
             long startTime = System.currentTimeMillis();
 
             // Translate source file.
             Assembler assembler = new Assembler(sourceFile, outputFile);
             assembler.translate();
 
-            // Stop timer.
+            // Stop the timer and calculate the elapsed time.
             long endTime = System.currentTimeMillis();
             long elaspedTime = endTime - startTime;
 
-            // Output success message if no errors occur.
+            // Display a success message if the translation completes without errors.
             StringWriter status = new StringWriter();
             status.append("Translation completed successfully on ");
             status.append(sourceAbsolutePath);
@@ -72,7 +73,7 @@ public class Program {
             status.append("ms.");
             System.out.println(status.toString());
         } catch (IOException e) {
-            // Exit with error if I/O error occurs.
+            // Exit with error message if an I/O error occurs.
             System.err.println("An unknown I/O error occurred.");
             System.exit(3);
         }

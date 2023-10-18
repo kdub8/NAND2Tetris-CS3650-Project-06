@@ -30,11 +30,11 @@ public class Assembler {
     public Assembler(File source, File target) throws IOException {
         this.assemblyCode = source;
 
-        // Create buffered writer.
+        // Create buffered writer to write machine code to the target file.
         FileWriter fw = new FileWriter(target);
         this.machineCode = new BufferedWriter(fw);
 
-        // Initialize assembler components.
+        // Initialize assembler components, including encoder and symbol table.
         this.encoder = new Code();
         this.symbolTable = new SymbolTable();
     }
@@ -45,6 +45,7 @@ public class Assembler {
         this.parse();
     }
 
+    // Step 1: Record labels and their addresses.
     private void recordLabelAddress() throws IOException {
         Parser parser = new Parser(this.assemblyCode);
         while (parser.hasMoreCommands()) {
@@ -63,7 +64,7 @@ public class Assembler {
         parser.close();
     }
 
-    // Parse source file.
+    // Step 2: Parse the source file and translate instructions.
     private void parse() throws IOException {
         Parser parser = new Parser(this.assemblyCode);
         while (parser.hasMoreCommands()) {
